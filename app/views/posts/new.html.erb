@@ -1,0 +1,36 @@
+<h1>Create a New Post</h1>
+
+<%=form_with model: @post do | form | %>
+  <% if @post.errors.any? %>
+    <div style="color: red;">
+      <h2><%= pluralize(@post.errors.count, "error") %> kept this post from saving:</h2>
+      <ul>
+        <% @post.errors.full_messages.each do | msg | %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="label">
+    <%= form.label :title, style: "display: block;" %>
+    <%= form.text_field :title, placeholder: "Enter title..." %>
+  </div>
+
+  <br>
+
+  <div class="body">
+    <%= form.label :body, style: "display: block;" %>
+    <%= form.text_area :body, rows: 5, placeholder: "Write your post here..." %>
+  </div>
+
+  <br>
+
+  <div class="submit-btn">
+    <%= form.submit "Create Post" %>
+  </div>
+
+<% end %>
+
+<br>
+<%= link_to "Back to Posts", posts_path %>

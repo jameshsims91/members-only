@@ -1,0 +1,26 @@
+<h1>All Posts</h1>
+
+<%= link_to "Create New Post", new_post_path %>
+<hr>
+
+<div id="posts-list">
+  <% if @posts.any? %>
+    <% @posts.each do |post| %>
+      <div class="post-card" style="border: 1px solid #ccc; padding: 15px; margin-bottom: 15px;">
+        <h2><%= post.title %></h2>
+        <p><%= post.body %></p>
+        
+        <% if user_signed_in? %>
+          <small>
+            Posted by: <%= post.user.username %> 
+            <%= time_ago_in_words(post.created_at) %> ago
+          </small>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No posts have been created yet!</p>
+  <% end %>
+</div>
+
+

@@ -1,4 +1,4 @@
-# TOP Projec: Members-Only
+# TOP Project: Members-Only
 
 This is a project from The Odin Proejct to make a ROR web app for logging in, and making post that only memembers can see who wrote them,
 non members will be able to see the post but not who authored them. 
